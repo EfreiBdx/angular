@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ICocktail, IDataCocktail, ISingleCocktail } from '../_interfaces/cocktail';
+import { IApi } from '../_interfaces/api';
 
 @Injectable({
   providedIn: 'root'
@@ -10,31 +12,31 @@ export class Cocktail {
 
   constructor(private http: HttpClient){}
 
-  getAllCocktails(): Observable<any>{
-    return this.http.get<any>(this.url)
+  getAllCocktails(): Observable<IDataCocktail>{
+    return this.http.get<IDataCocktail>(this.url)
   }
 
-  getCocktail(cid: string): Observable<any>{
-    return this.http.get<any>(this.url+"/"+cid)
+  getCocktail(cid: string): Observable<ISingleCocktail>{
+    return this.http.get<ISingleCocktail>(this.url+"/"+cid)
   }
 
-  addCocktail(cocktail: any): Observable<any>{
-    return this.http.put(this.url, cocktail)
+  addCocktail(cocktail: ICocktail): Observable<IApi>{
+    return this.http.put<IApi>(this.url, cocktail)
   }
 
-  updateCocktail(cocktail: any): Observable<any>{
-    return this.http.patch<any>(this.url+"/"+cocktail.id, cocktail)
+  updateCocktail(cocktail: ICocktail): Observable<IApi>{
+    return this.http.patch<IApi>(this.url+"/"+cocktail.id, cocktail)
   }
 
-  trashCocktail(cid: number): Observable<any>{
-    return this.http.delete<any>(this.url+"/trash/"+cid)
+  trashCocktail(cid: number): Observable<IApi>{
+    return this.http.delete<IApi>(this.url+"/trash/"+cid)
   }
 
-  untrashCocktail(cid: number): Observable<any>{
-    return this.http.post<any>(this.url+"/untrash/"+cid, {})
+  untrashCocktail(cid: number): Observable<IApi>{
+    return this.http.post<IApi>(this.url+"/untrash/"+cid, {})
   }
 
-  deleteCocktail(cid: string): Observable<any>{
-    return this.http.delete(this.url+"/"+cid)
+  deleteCocktail(cid: string): Observable<IApi>{
+    return this.http.delete<IApi>(this.url+"/"+cid)
   }
 }

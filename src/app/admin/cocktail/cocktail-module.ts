@@ -6,6 +6,7 @@ import { Cindex } from './cindex/cindex';
 import { Cadd } from './cadd/cadd';
 import { Cedit } from './cedit/cedit';
 import { Cdelete } from './cdelete/cdelete';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { Cdelete } from './cdelete/cdelete';
   ],
   imports: [
     CommonModule,
-    CocktailRoutingModule
+    CocktailRoutingModule,
+    FormsModule
   ]
 })
 export class CocktailModule { }
