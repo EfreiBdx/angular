@@ -34,24 +34,34 @@ export class Cedit implements OnInit {
     // console.log( typeof cid)
 
     this.activated.params.subscribe(param => {
-     console.log(param)
-     console.log(param['cid'])
-     console.log(typeof param['cid'])
+      console.log(param)
+      console.log(param['cid'])
+      console.log(typeof param['cid'])
 
-    //  console.log(+param['cid'])
-    //  console.log(typeof +param['cid'])
+      //  console.log(+param['cid'])
+      //  console.log(typeof +param['cid'])
 
-     this.cocktailService.getCocktail(param['cid']).subscribe(
-      data => {
-        console.log(data)
-        this.cocktail = data.data
-      },
-      err => console.log(err)
-     )
+      // Subscribe d'avant
+      // this.cocktailService.getCocktail(param['cid']).subscribe(
+      //   data => {
+      //     console.log(data)
+      //     this.cocktail = data.data
+      //   },
+      //   err => console.log(err)
+      // )
+
+      // Format préconisé par rxjs
+      this.cocktailService.getCocktail(param['cid']).subscribe({
+        next: data => {
+          console.log(data)
+          this.cocktail = data.data
+        },
+        error: err => console.log(err)
+      })
     })
   }
 
-  onSubmit():void{
+  onSubmit(): void {
     console.log(this.cocktail)
     this.cocktailService.updateCocktail(this.cocktail).subscribe(
       data => console.log(data),
