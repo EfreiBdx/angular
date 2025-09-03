@@ -25,10 +25,32 @@ export class Cindex implements OnInit {
   }
 
   trash(cid: number | undefined):void{
-    console.log(cid)
+    this.cocktailService.trashCocktail(cid).subscribe(
+      data => {
+        console.log(data)
+        this.ngOnInit()
+      },
+      err => console.log(err)
+    )
   }
 
   unTrash(cid: number | undefined): void{
     console.log(cid)
+    this.cocktailService.untrashCocktail(cid).subscribe(
+      () => {
+        this.ngOnInit()
+      },
+      err => console.log(err)
+    )
+  }
+
+  hardDel(cid: number | undefined): void{
+    console.log(cid)
+    this.cocktailService.deleteCocktail(cid).subscribe(
+      () => {
+        this.ngOnInit()
+      },
+      err => console.log(err)
+    )
   }
 }

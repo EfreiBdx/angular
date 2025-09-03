@@ -7,9 +7,9 @@ import { Cdelete } from './cdelete/cdelete';
 
 const routes: Routes = [
   { path: '', component: Cindex },
-  { path: 'edit/:id', component: Cedit},
+  { path: 'edit/:cid', component: Cedit},
   { path: 'add', component: Cadd},
-  { path: 'delete/:id', component: Cdelete}
+  { path: 'delete/:cid', component: Cdelete}
 ];
 
 @NgModule({

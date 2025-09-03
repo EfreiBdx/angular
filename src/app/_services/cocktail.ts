@@ -28,15 +28,15 @@ export class Cocktail {
     return this.http.patch<IApi>(this.url+"/"+cocktail.id, cocktail)
   }
 
-  trashCocktail(cid: number): Observable<IApi>{
+  trashCocktail(cid: number | undefined): Observable<IApi>{
     return this.http.delete<IApi>(this.url+"/trash/"+cid)
   }
 
-  untrashCocktail(cid: number): Observable<IApi>{
+  untrashCocktail(cid: number | undefined): Observable<IApi>{
     return this.http.post<IApi>(this.url+"/untrash/"+cid, {})
   }
 
-  deleteCocktail(cid: string): Observable<IApi>{
+  deleteCocktail(cid: number | undefined): Observable<IApi>{
     return this.http.delete<IApi>(this.url+"/"+cid)
   }
 }

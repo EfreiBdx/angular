@@ -14,10 +14,21 @@
         </thead>
         <tbody>
             <tr *ngFor="let cocktail of cocktailList">
-                <td><a [routerLink]="['edit', cocktail.id]">Edit</a></td>
+                <td>
+                    <a [routerLink]="['edit', cocktail.id]">Edit</a>
+                    <span (click)="hardDel(cocktail.id)" style="color: red; cursor: pointer; margin-left: 10px;"><b>X</b></span>
+                </td>
                 <td>
                     <button (click)="trash(cocktail.id)" *ngIf="cocktail.deletedAt == null">T</button>
                     <button (click)="unTrash(cocktail.id)" *ngIf="cocktail.deletedAt != null">U</button>
+
+                    <!-- @if(cocktail.deletedAt == null){
+                        <button (click)="trash(cocktail.id)">T</button>
+                    }
+                    @if(cocktail.deletedAt != null){
+                        <button (click)="unTrash(cocktail.id)">U</button>
+                    } -->
+
                 </td>
                 <td>{{ cocktail.id }}</td>
                 <td>{{ cocktail.nom }}</td>
