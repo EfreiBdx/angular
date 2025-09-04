@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-alayout',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './alayout.css'
 })
 export class Alayout {
-
+  roger = signal(50)
 }

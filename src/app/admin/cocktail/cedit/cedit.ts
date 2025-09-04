@@ -1,4 +1,3 @@
-import { HttpParams } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ICocktail } from '../../../_interfaces/cocktail';

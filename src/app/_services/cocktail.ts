@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ICocktail, IDataCocktail, ISingleCocktail } from '../_interfaces/cocktail';
 import { IApi } from '../_interfaces/api';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Cocktail {
-  url = 'http://localhost:12000/cocktails'
+  // url = 'http://localhost:12000/cocktails'
+  url = environment.urlAPICkt
 
   constructor(private http: HttpClient){}
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-aheader',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './aheader.css'
 })
 export class Aheader {
-
+  marcel = input<Number>()
 }
